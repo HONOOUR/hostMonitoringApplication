@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Host Monitoring Application</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .container {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="py-5 text-center">
+        <h1>Host Monitoring Application</h1>
+    </div>
+    <div class="py-5 text-center">
+        <h3>호스트 등록 관리, 호스트 상태 관리 <a th:href="@{/hosts}" class="btn btn-primary my-2">Enter</a> </h3>
+    </div>
+</div>
+</body>
+</html>
