@@ -17,6 +17,15 @@ import java.time.LocalDateTime;
 public class HostService {
     private final HostRepository hostRepository;
 
+    public boolean canRegisterHost() {
+        long count = hostRepository.count();
+        if (count < 100) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public void registerNewHost(Host host) {
         boolean isAlive = isHostAlive(host.getName());
         host.setAlive(isAlive);
@@ -28,7 +37,7 @@ public class HostService {
         hostRepository.save(host);
     }
 
-    private boolean isHostAlive(String name) {
+    public boolean isHostAlive(String name) {
         boolean isAlive = false;
         try {
             if (InetAddress.getByName(name).isReachable(5000)){
@@ -74,5 +83,10 @@ public class HostService {
             isRegistered = true;
         }
         return isRegistered;
+    }
+
+    public void deleteHost(String name) {
+        Host host = getHost(name);
+        hostRepository.delete(host);
     }
 }

@@ -24,7 +24,7 @@
                     </div>
                     <div class="card-body">
                         <a th:href="@{'/host/'+ ${host.name}}">
-                            <h5 class="card-title context" th:text="${host.name}"></h5>
+                            <h5 class="card-title context">name: <span th:text="${host.name}"></span></h5>
                         </a>
                     </div>
                     <div class="card-text context">
@@ -32,6 +32,9 @@
                         <h5 class="mt-0 mb-1">created at: <span th:text="${host.createdAt}"></span></h5>
                         <h5 class="mt-0 mb-1">last alive at: <span th:text="${host.lastAliveAt}"></span></h5>
                         <h5 class="mt-0 mb-1">updated at: <span th:text="${host.updatedAt}"></span></h5>
+                        <form th:action="@{'/delete/host/'+ ${host.name}}" th:method="post">
+                            <button class="btn btn-primary" type="submit">호스트 삭제</button>
+                        </form>
                     </div>
                 </div>
             </div>
